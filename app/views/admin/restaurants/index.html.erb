@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% content_for (:title) do %>
+    <%= @restaurant.name %>
+<% end %>
 
 <h1>Restaurants</h1>
 <h5>As admin you can edit and delete restaurants and reviews</h5>
