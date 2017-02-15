@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :content, placeholder: "Good food, good vibe!" %>
+        <%= f.input :rating, placeholder: "0 to 5" %>
+        <%= f.submit "Add Review", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

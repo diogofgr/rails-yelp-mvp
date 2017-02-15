@@ -1,4 +1,4 @@
-class RestaurantsController < ApplicationController
+class Admin::RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants
@@ -17,9 +17,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
-  # # GET /restaurants/1/edit
-  # def edit
-  # end
+  # GET /restaurants/1/edit
+  def edit
+  end
 
   # POST /restaurants
   # POST /restaurants.json
@@ -39,23 +39,23 @@ class RestaurantsController < ApplicationController
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
-  # def update
-  #     if @restaurant.update(restaurant_params)
-  #       redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
-  #     else
-  #       render 'edit'
-  #     end
-  # end
+  def update
+      if @restaurant.update(restaurant_params)
+        redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
+      else
+        render 'edit'
+      end
+  end
 
-  # # DELETE /restaurants/1
-  # # DELETE /restaurants/1.json
-  # def destroy
-  #   @restaurant.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  # DELETE /restaurants/1
+  # DELETE /restaurants/1.json
+  def destroy
+    @restaurant.destroy
+    respond_to do |format|
+      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

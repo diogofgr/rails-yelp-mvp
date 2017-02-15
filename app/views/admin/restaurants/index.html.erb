@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Restaurants</h1>
+<h5>As admin you can edit and delete restaurants and reviews</h5>
 
 <table>
   <thead>
@@ -20,6 +21,8 @@
         <td><%= restaurant.address %></td>
         <td><%= restaurant.phone_number %></td>
         <td><%= restaurant.category %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

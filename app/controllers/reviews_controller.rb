@@ -11,7 +11,11 @@ class ReviewsController < ApplicationController
     @review.restaurant = @restaurant
     @review.save
 
-    redirect_to restaurant_path(@restaurant)
+    if @review.save
+      redirect_to restaurant_path(@restaurant), notice: 'Review successfully added.'
+    else
+      render 'new'
+    end
   end
 
   private
